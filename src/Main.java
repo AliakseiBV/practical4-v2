@@ -18,24 +18,22 @@ public class Main {
 //      1. Create an array for 6 objects
             final int PURCHASES_NUMBER = 6;
             Purchase purchases[] = new Purchase[PURCHASES_NUMBER];
-
             Purchase withMaxCost = new Purchase();
-            boolean areTheyEqual;
+            boolean arePurchasesEqual = false;
 
             for(int i = 0; i < purchases.length; i++){
 //      2. Input data from the given file into the array.
                 purchases[i] = PurchaseFactory.getPurchaseFromFactory(scanner);
 
-
-
+//      4. Output the purchase with maximum cost.
+                withMaxCost = withMaxCost.getMaxCost(purchases[i]);
+//      5. Determine whether all purchases are equal.
+                arePurchasesEqual = purchases[0].areEqual(purchases[i]);
 //      3. Output the array content to the console (one element per line).
                 System.out.println(purchases[i]);
             }
-//      4. Output the purchase with maximum cost.
-//      5. Determine whether all purchases are equal.
-
-
-
+            System.out.println("With max cost is - " + withMaxCost);
+            System.out.println(arePurchasesEqual);
 
         }catch (FileNotFoundException e){
             System.err.println("File not found :(");

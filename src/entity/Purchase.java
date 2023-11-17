@@ -37,6 +37,20 @@ public class Purchase {
                 + getCost();
     }
 
+    public Purchase getMaxCost(Purchase somePurchase){
+        if(this.getCost().compareTo(somePurchase.getCost()) > 0){
+            return this;
+        }
+        return somePurchase;
+    }
+
+    public boolean areEqual(Purchase somePurchase){
+        if(this.getCost().compareTo(somePurchase.getCost()) == 0){
+            return true;
+        }
+        return false;
+    }
+
 
     public String getPurchaseName() {
         return purchaseName;
